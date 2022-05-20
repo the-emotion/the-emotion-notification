@@ -1,0 +1,11 @@
+/*
+ Localizable.strings
+  The Emotion
+
+  Created by Denis Kashin on 22.10.2021.
+  
+*/
+
+// For tags from notification
+"gratitude" = "Благодарность";
+"plan" = "План на день";

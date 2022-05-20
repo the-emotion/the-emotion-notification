@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Le temps de la reconnaissance",
+        "subtitle": "Savoir pour qui et pour quoi vous remerciez augmente la pleine conscience",
+        "isPositive": false,
+        "type": "gratitude",
+    },
+    {
+        "title": "Il est temps de planifier la journée",
+        "subtitle": "Planifier la journée vous permet de passer la journée plus consciemment",
+        "isPositive": false,
+        "type": "plan",
+    }
+]

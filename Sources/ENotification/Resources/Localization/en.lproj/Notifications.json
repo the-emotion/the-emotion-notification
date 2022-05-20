@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Time for gratitude",
+        "subtitle": "Knowing Who and What You’re Thanking for Increases Mindfulness",
+        "isPositive": false,
+        "type": "gratitude",
+    },
+    {
+        "title": "Time to plan the day",
+        "subtitle": "Planning the day allows you to spend the day more consciously",
+        "isPositive": false,
+        "type": "plan",
+    }
+]
