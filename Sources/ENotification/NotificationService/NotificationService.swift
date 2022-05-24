@@ -18,7 +18,6 @@ public final class NotificationService: NSObject {
         
         super.init()
         loadData()
-        setStaticNotifications() {_ in}
     }
     // MARK: - Аавторизация на получение токенов и получение статуса нотификаций
     public func requestNotificationAuthorization() {
@@ -38,8 +37,9 @@ public final class NotificationService: NSObject {
     }
     
     // MARK: - Установка стандартных нотификаций
-    func setStaticNotifications(completion: @escaping (AddNotificationStatus) -> Void) {
+    public func setStaticNotifications(completion: @escaping (AddNotificationStatus) -> Void) {
         // Удаляем весь список не доставленных нотификаций
+        guard NotificationSettings.isEnabled else { return }
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
         // Для тестов
@@ -48,6 +48,13 @@ public final class NotificationService: NSObject {
         var fail = 0
         
         for notification in notifications {
+            switch notification.type {
+            case .gratitude:
+                guard NotificationSettings.gratitudeNotificationsEnabled else { continue }
+            case .plan:
+                guard NotificationSettings.planningNotificationsEnabled else { continue }
+            }
+            
             let request = notification.notificationRequest
             UNUserNotificationCenter.current().add(request) { error in
                 if let error = error {
@@ -90,6 +97,6 @@ public final class NotificationService: NSObject {
     }
 }
 
-enum AddNotificationStatus {
+public enum AddNotificationStatus {
     case success, failed, partSuccess
 }

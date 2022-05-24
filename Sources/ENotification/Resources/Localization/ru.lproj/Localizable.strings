@@ -9,3 +9,11 @@
 // For tags from notification
 "gratitude" = "Благодарность";
 "plan" = "План на день";
+
+//views
+"Notification settings" = "Настройки уведомлений";
+"Notifications enabled" = "Уведомления разрешены";
+"Allowed notifications" = "Доступные уведомления";
+
+"Notifications are disabled, for enable notifications go to Settings" = "Уведомления запрещены, для того, чтобы предоставить доступ к уведомлениям перейдите в настройки";
+"Open settings" = "Открыть настройки";

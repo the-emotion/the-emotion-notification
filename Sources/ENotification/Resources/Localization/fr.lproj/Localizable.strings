@@ -9,3 +9,11 @@
 // For tags from notification
 "gratitude" = "Gratitude";
 "plan" = "Planifier la journée";
+
+//views
+"Notification settings" = "Paramètres de notification";
+"Notifications enabled" = "Notifications autorisées";
+"Allowed notifications" = "Notifications disponibles";
+
+"Notifications are disabled, for enable notifications go to Settings" = "Les notifications sont désactivées, afin d'accorder l'accès aux notifications, accédez aux paramètres";
+"Open settings" = "Ouvrir les paramètres";

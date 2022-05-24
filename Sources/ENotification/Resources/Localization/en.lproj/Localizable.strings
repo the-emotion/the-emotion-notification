@@ -8,3 +8,11 @@
 
 "gratitude" = "Gratitude";
 "plan" = "Plan for the day";
+
+//views
+"Notification settings" = "Notification settings";
+"Notifications enabled" = "Notifications allowed";
+"Allowed notifications" = "Available notifications";
+
+"Notifications are disabled, for enable notifications go to Settings" = "Notifications are disabled, in order to grant access to notifications go to settings";
+"Open settings" = "Open settings";

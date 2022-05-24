@@ -14,48 +14,31 @@ struct SettingsView: View {
         VStack {
             Form {
                 Section {
-                    HStack {
-                        Spacer()
-                        Text("Notification Settings")
-                            .font(.title2)
-                        Spacer()
-                    }
-                    
                     Toggle(isOn: $viewModel.isNotificationsEnabled) {
-                        Text("Notifications enabled")
+                        Text("Notifications enabled".localized())
                     }
                 }
-                Section {
-                    SettingRowView(
-                        setting: "Authorization Status",
-                        enabled: viewModel.unNotificationSettings?.authorizationStatus == UNAuthorizationStatus.authorized)
-                    SettingRowView(
-                        setting: "Show in Notification Center",
-                        enabled: viewModel.unNotificationSettings?.notificationCenterSetting == .enabled)
-                    SettingRowView(
-                        setting: "Sound Enabled?",
-                        enabled: viewModel.unNotificationSettings?.soundSetting == .enabled)
-                    SettingRowView(
-                        setting: "Badges Enabled?",
-                        enabled: viewModel.unNotificationSettings?.badgeSetting == .enabled)
-                    SettingRowView(
-                        setting: "Alerts Enabled?",
-                        enabled: viewModel.unNotificationSettings?.alertSetting == .enabled)
-                    SettingRowView(
-                        setting: "Show on lock screen?",
-                        enabled: viewModel.unNotificationSettings?.lockScreenSetting == .enabled)
-                    SettingRowView(
-                        setting: "Alert banners?",
-                        enabled: viewModel.unNotificationSettings?.alertStyle == .banner)
-                    SettingRowView(
-                        setting: "Critical Alerts?",
-                        enabled: viewModel.unNotificationSettings?.criticalAlertSetting == .enabled)
-                    SettingRowView(
-                        setting: "Siri Announcement?",
-                        enabled: viewModel.unNotificationSettings?.announcementSetting == .enabled)
+                Section(header: Text("Allowed notifications".localized())) {
+                    if viewModel.unNotificationSettings?.authorizationStatus == UNAuthorizationStatus.authorized {
+                        
+                        Toggle(isOn: $viewModel.gratitudeNotificationsEnabled) {
+                            Text("gratitude".localized())
+                        }
+                        
+                        Toggle(isOn: $viewModel.planningNotificationsEnabled) {
+                            Text("plan".localized())
+                        }
+                        
+                    } else {
+                        Text("Notifications are disabled, for enable notifications go to Settings")
+                        Button("Open settings") {
+                            viewModel.openAppSettings()
+                        }
+                    }
                 }
             }
         }
+        .navigationTitle(Text("Notification settings".localized()))
     }
 }
 
