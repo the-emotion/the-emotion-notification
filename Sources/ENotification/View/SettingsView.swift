@@ -42,12 +42,6 @@ struct SettingsView: View {
     }
 }
 
-struct NotificationSettingsView_Previews: PreviewProvider {
-  static var previews: some View {
-      SettingsView(viewModel: .init(notificationService: .init()))
-  }
-}
-
 struct SettingRowView: View {
     var setting: String
     var enabled: Bool

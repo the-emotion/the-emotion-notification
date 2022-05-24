@@ -7,20 +7,23 @@
 
 import Foundation
 import Routing
+import Services
 
 public final class NotificationFactory {
     public static let notificationService = NotificationService()
-    public static func create(router: RouterProtocol) -> BaseCoordinator {
-        NotificationCoordinator(router: router, service: notificationService)
+    public static func create(router: RouterProtocol, analyticService: AnalyticServiceProtocol) -> BaseCoordinator {
+        NotificationCoordinator(router: router, service: notificationService, analyticService: analyticService)
     }
 }
 
 final class NotificationCoordinator: BaseCoordinator {
     
     let service: NotificationService
+    let analyticService: AnalyticServiceProtocol
     
-    init(router: RouterProtocol, service: NotificationService) {
+    init(router: RouterProtocol, service: NotificationService, analyticService: AnalyticServiceProtocol) {
         self.service = service
+        self.analyticService = analyticService
         super.init(router: router)
     }
     
@@ -29,7 +32,7 @@ final class NotificationCoordinator: BaseCoordinator {
     }
     
     func showNotificationSettingsView() {
-        let view = SettingsView(viewModel: .init(notificationService: service)).wrapIntoHostV2()
+        let view = SettingsView(viewModel: .init(notificationService: service, analyticService: analyticService)).wrapIntoHostV2()
         router.presentStack(root: view, animated: true, style: .fullScreen)
     }
 }
